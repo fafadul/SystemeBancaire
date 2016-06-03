@@ -60,11 +60,6 @@ public class Client {
 		this.solde = solde;
 	}
 	
-	//public void afficherSolde(double solde) {
-		//return solde;
-		//System.out.println("Solde = "+solde);
-	//}
-	
 	/**
 	 * Connection to the bd and show the balance
 	 * @throws SQLException
@@ -81,7 +76,6 @@ public class Client {
 		while (resultSet.next()) { 
 			solde = resultSet.getDouble("solde");
 		}
-//		afficherSolde();
 		return solde;
 		
 	}
