@@ -1,5 +1,7 @@
 package fr.formation.SystemeBancaire;
 
+import java.sql.SQLException;
+
 /**
  * class main
  * @version 1.0
@@ -7,8 +9,10 @@ package fr.formation.SystemeBancaire;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws SQLException
     {
-        System.out.println( "Hello World!" );
+       Client client1 = new Client("Oncle", "Picsou", 123);
+       double soldelient1 = client1.getSoldeFromDb();
+       System.out.println(soldelient1);
     }
 }

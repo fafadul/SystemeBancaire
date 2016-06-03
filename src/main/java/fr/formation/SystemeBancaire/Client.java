@@ -56,19 +56,20 @@ public class Client {
 	public double getSolde() {
 		return solde;
 	}
-	public void setSolde(float solde) {
+	public void setSolde(double solde) {
 		this.solde = solde;
 	}
 	
-	public void afficherSolde() {
-		System.out.println("Solde = "+solde);
-	}
+	//public void afficherSolde(double solde) {
+		//return solde;
+		//System.out.println("Solde = "+solde);
+	//}
 	
 	/**
 	 * Connection to the bd and show the balance
 	 * @throws SQLException
 	 */
-	public void getSoldeFromDb() throws SQLException {
+	public double getSoldeFromDb() throws SQLException {
 		String url = "jdbc:postgresql://localhost:5432/test"; 
 		String user = "admin"; 
 		String passwd = "admin"; 
@@ -76,11 +77,13 @@ public class Client {
 		
 		Statement statement = connection.createStatement(); 
 		ResultSet resultSet = statement.executeQuery("SELECT solde FROM client WHERE numero_compte ="+numeroCompte);
-		
+		double solde = 0;
 		while (resultSet.next()) { 
 			solde = resultSet.getDouble("solde");
 		}
-		afficherSolde();
+//		afficherSolde();
+		return solde;
+		
 	}
 	
 }
